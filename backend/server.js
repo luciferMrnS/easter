@@ -323,14 +323,15 @@ app.post('/api/videos', upload.single('video'), async (req, res) => {
     }
 
     try {
-        // Use local storage
-        const videoFilename = Date.now() + '-' + req.file.originalname;
-        const videoPath = path.join(videosDir, videoFilename);
-        fs.writeFileSync(videoPath, req.file.buffer);
+        // Upload to Cloudinary
+        console.log('Uploading video to Cloudinary...');
+        const cloudinaryResult = await uploadToCloudinary(req.file.buffer, 'easterblog/videos', 'video');
 
-        const filepath = `/uploads/videos/${videoFilename}`;
-        const filename = videoFilename;
-        const thumbnail = null;
+        const filepath = cloudinaryResult.secure_url;
+        const filename = cloudinaryResult.public_id;
+        const thumbnail = cloudinaryResult.secure_url.replace(/\.[^/.]+$/, '.jpg'); // Use Cloudinary's auto-generated thumbnail
+
+        console.log('Video uploaded to Cloudinary:', filepath);
 
         const { title, description, category = 'general', tags } = req.body;
 
@@ -547,13 +548,14 @@ app.post('/api/photos', upload.single('photo'), async (req, res) => {
     }
 
     try {
-        // Use local storage
-        const photoFilename = Date.now() + '-' + req.file.originalname;
-        const photoPath = path.join(photosDir, photoFilename);
-        fs.writeFileSync(photoPath, req.file.buffer);
+        // Upload to Cloudinary
+        console.log('Uploading photo to Cloudinary...');
+        const cloudinaryResult = await uploadToCloudinary(req.file.buffer, 'easterblog/photos', 'image');
 
-        const filepath = `/uploads/photos/${photoFilename}`;
-        const filename = photoFilename;
+        const filepath = cloudinaryResult.secure_url;
+        const filename = cloudinaryResult.public_id;
+
+        console.log('Photo uploaded to Cloudinary:', filepath);
 
         const { title, description, category = 'general', tags } = req.body;
 
