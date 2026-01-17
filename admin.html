@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasterBlog - Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .save-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .bulk-delete-btn:hover {
+            background: #c82333 !important;
+        }
+
+        .edit-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-right: 4px;
+        }
+
+        .edit-btn:hover {
+            background: #0056b3;
+        }
+
+        .section-toggle {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-toggle:hover {
+            background-color: #f8f9fa;
+        }
+
+        .toggle-icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-section {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .collapsible-section.collapsed {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .upload-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        .upload-section h3 {
+            margin: 0;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .upload-section .collapsible-section {
+            padding: 15px;
+        }
+
+        .blog-form {
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .blog-posts-list {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .blog-posts-list h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .blog-preview-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            background: #f9f9f9;
+        }
+
+        .blog-preview-content h5 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .blog-preview-meta {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .blog-preview-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .blog-edit-btn, .blog-delete-btn {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .blog-edit-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .blog-delete-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .contact-messages-list {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .contact-messages-list h4 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .contact-message-item {
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f9f9f9;
+        }
+
+        .contact-message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-message-sender {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-message-status {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .contact-message-status.unread {
+            background: #007bff;
+            color: white;
+        }
+
+        .contact-message-status.read {
+            background: #28a745;
+            color: white;
+        }
+
+        .contact-message-status.archived {
+            background: #6c757d;
+            color: white;
+        }
+
+        .contact-message-content {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .contact-message-meta {
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-message-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .contact-mark-read-btn, .contact-mark-archived-btn, .contact-delete-btn {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        .contact-mark-read-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .contact-mark-archived-btn {
+            background: #6c757d;
+            color: white;
+        }
+
+        .contact-delete-btn {
+            background: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>EasterBlog Admin</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Back to Site</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="login-section" class="login-section">
+        <div class="container">
+            <div class="login-form">
+                <h2>Admin Login</h2>
+                <p>Enter the passkey to access the admin panel</p>
+                <input type="password" id="passkey-input" placeholder="Enter passkey" required>
+                <button id="login-btn" class="login-btn">Login</button>
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="admin-section" class="admin-section" style="display: none;">
+        <div class="container">
+            <h2>Admin Panel - Upload Content</h2>
+
+            <div class="upload-section">
+                <h3 class="section-toggle" data-target="photo-section">
+                    Upload Photos
+                    <span class="toggle-icon">▼</span>
+                </h3>
+                <div id="photo-section" class="collapsible-section">
+                    <div class="upload-form">
+                        <input type="file" id="photo-upload" multiple accept="image/*">
+                        <button id="upload-photos-btn" class="upload-btn">Upload Photos</button>
+                    </div>
+                    <div id="photo-previews" class="previews-grid"></div>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <h3 class="section-toggle" data-target="video-section">
+                    Upload Videos
+                    <span class="toggle-icon">▼</span>
+                </h3>
+                <div id="video-section" class="collapsible-section">
+                    <div class="upload-form">
+                        <input type="file" id="video-upload" multiple accept="video/*">
+                        <button id="upload-videos-btn" class="upload-btn">Upload Videos</button>
+                    </div>
+                    <div id="video-previews" class="previews-grid"></div>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <h3 class="section-toggle" data-target="blog-section">
+                    Write Blog Post
+                    <span class="toggle-icon">▼</span>
+                </h3>
+                <div id="blog-section" class="collapsible-section">
+                    <div class="blog-form">
+                        <div class="form-group">
+                            <label for="blog-title">Title:</label>
+                            <input type="text" id="blog-title" placeholder="Enter blog post title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-excerpt">Excerpt (optional):</label>
+                            <textarea id="blog-excerpt" rows="2" placeholder="Brief summary of the post"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-content">Content:</label>
+                            <textarea id="blog-content" rows="10" placeholder="Write your blog post content here..." required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="blog-category">Category:</label>
+                                <select id="blog-category">
+                                    <option value="general">General</option>
+                                    <option value="easter">Easter</option>
+                                    <option value="reflections">Reflections</option>
+                                    <option value="behind-scenes">Behind the Scenes</option>
+                                    <option value="tips">Tips & Tutorials</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="blog-tags">Tags:</label>
+                                <input type="text" id="blog-tags" placeholder="Comma-separated tags">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="blog-featured-image">Featured Image:</label>
+                            <input type="file" id="blog-featured-image-upload" accept="image/*">
+                            <small style="color: #666; font-size: 12px;">Or enter URL below</small>
+                            <input type="url" id="blog-featured-image" placeholder="https://example.com/image.jpg" style="margin-top: 5px;">
+                        </div>
+                        <div class="form-actions">
+                            <button id="publish-blog-btn" class="save-btn">Publish Post</button>
+                            <button id="draft-blog-btn" class="cancel-btn">Save as Draft</button>
+                        </div>
+                    </div>
+                    <div id="blog-posts-list" class="blog-posts-list">
+                        <h4>Recent Blog Posts</h4>
+                        <div id="blog-previews" class="blog-previews"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <h3 class="section-toggle" data-target="contact-section">
+                    Contact Messages
+                    <span class="toggle-icon">▼</span>
+                </h3>
+                <div id="contact-section" class="collapsible-section">
+                    <div class="contact-messages-list">
+                        <h4>Recent Messages</h4>
+                        <div id="contact-messages" class="contact-messages"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="manage-section">
+                <h3>Manage Uploaded Content</h3>
+                <div class="bulk-actions" style="margin-bottom: 1rem;">
+                    <button id="bulk-delete-btn" class="bulk-delete-btn" style="display: none; background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Delete Selected</button>
+                    <span id="selected-count" style="margin-left: 10px; font-size: 14px;"></span>
+                </div>
+                <button id="clear-all-btn" class="clear-btn">Clear All Content</button>
+                <div id="featured-status" class="featured-status" style="margin-top: 1rem; padding: 1rem; background: #f0f8ff; border-radius: 5px;">
+                    <h4>Featured Video Status</h4>
+                    <p id="current-featured">No featured video set</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EasterBlog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" id="close-edit-modal">&times;</span>
+            <h3 id="edit-modal-title">Edit Content</h3>
+            <form id="edit-form">
+                <div class="form-group">
+                    <label for="edit-title">Title:</label>
+                    <input type="text" id="edit-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-description">Description:</label>
+                    <textarea id="edit-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-category">Category:</label>
+                    <select id="edit-category">
+                        <option value="general">General</option>
+                        <option value="easter">Easter Specials</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="traditions">Traditions</option>
+                        <option value="adventures">Adventures</option>
+                        <option value="family">Family</option>
+                        <option value="decorations">Decorations</option>
+                        <option value="nature">Nature</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-tags">Tags:</label>
+                    <input type="text" id="edit-tags" placeholder="Comma-separated tags">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Save Changes</button>
+                    <button type="button" class="cancel-btn" id="cancel-edit">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasterBlog - Photo Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>EasterBlog</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="gallery-btn">Gallery</a>
+                        <div class="dropdown-content">
+                            <a href="photos.html">Photos</a>
+                            <a href="videos.html">Videos</a>
+                        </div>
+                    </li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="photos" class="photos-section">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Photo+1" alt="Photo 1">
+                    <div class="photo-overlay">
+                        <h3>Easter Sunrise</h3>
+                        <p>Capturing the beauty of the morning...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/E94B3C/FFFFFF?text=Photo+2" alt="Photo 2">
+                    <div class="photo-overlay">
+                        <h3>Easter Decorations</h3>
+                        <p>Festive home decorations...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/50E3C2/FFFFFF?text=Photo+3" alt="Photo 3">
+                    <div class="photo-overlay">
+                        <h3>Family Gathering</h3>
+                        <p>Cherished moments with family...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/F5A623/FFFFFF?text=Photo+4" alt="Photo 4">
+                    <div class="photo-overlay">
+                        <h3>Easter Eggs</h3>
+                        <p>Colorful Easter egg hunt...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/9013FE/FFFFFF?text=Photo+5" alt="Photo 5">
+                    <div class="photo-overlay">
+                        <h3>Spring Flowers</h3>
+                        <p>Blossoming spring flowers...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/7ED321/FFFFFF?text=Photo+6" alt="Photo 6">
+                    <div class="photo-overlay">
+                        <h3>Easter Feast</h3>
+                        <p>Delicious Easter brunch...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/BD10E0/FFFFFF?text=Photo+7" alt="Photo 7">
+                    <div class="photo-overlay">
+                        <h3>Easter Parade</h3>
+                        <p>Colorful Easter parade festivities...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Photo+8" alt="Photo 8">
+                    <div class="photo-overlay">
+                        <h3>Church Service</h3>
+                        <p>Solemn Easter morning service...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/4ECDC4/FFFFFF?text=Photo+9" alt="Photo 9">
+                    <div class="photo-overlay">
+                        <h3>Easter Basket</h3>
+                        <p>Traditional Easter basket with treats...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/45B7D1/FFFFFF?text=Photo+10" alt="Photo 10">
+                    <div class="photo-overlay">
+                        <h3>Family Portrait</h3>
+                        <p>Family photo in Easter attire...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/F9CA24/FFFFFF?text=Photo+11" alt="Photo 11">
+                    <div class="photo-overlay">
+                        <h3>Easter Sunrise</h3>
+                        <p>Majestic sunrise on Easter morning...</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/6C5CE7/FFFFFF?text=Photo+12" alt="Photo 12">
+                    <div class="photo-overlay">
+                        <h3>Easter Lily</h3>
+                        <p>Beautiful white Easter lily...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EasterBlog. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load photos from API
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('Loading photos from API...');
+            const apiBase = '/api';
+            const photoGrid = document.querySelector('.photo-grid');
+
+            if (!photoGrid) {
+                console.error('Photo grid not found');
+                return;
+            }
+
+            console.log('Found photo grid, fetching photos...');
+
+            try {
+                const response = await fetch(`${apiBase}/photos`);
+                console.log('API response status:', response.status);
+
+                if (response.ok) {
+                    const photos = await response.json();
+                    console.log('Received photos:', photos);
+
+                    // Clear existing placeholder photos
+                    photoGrid.innerHTML = '';
+                    console.log('Cleared placeholder photos');
+
+                    if (photos.length === 0) {
+                        // Show message if no photos
+                        photoGrid.innerHTML = '<p style="text-align: center; padding: 2rem; font-style: italic;">No photos uploaded yet. Visit the admin panel to add photos.</p>';
+                        console.log('No photos found, showing message');
+                        return;
+                    }
+
+                    console.log('Creating photo cards for', photos.length, 'photos');
+
+                    photos.forEach((photo, index) => {
+                        console.log(`Creating card ${index + 1}:`, photo.title);
+                        const photoCard = document.createElement('div');
+                        photoCard.className = 'photo-card';
+                        photoCard.innerHTML = `
+                            <img src="${photo.filepath}" alt="${photo.title}" onerror="console.error('Failed to load image:', this.src)">
+                            <div class="photo-overlay">
+                                <h3>${photo.title}</h3>
+                                <p>${photo.description || `Uploaded on ${new Date(photo.created_at).toLocaleDateString()}`}</p>
+                            </div>
+                        `;
+                        photoGrid.appendChild(photoCard);
+                    });
+
+                    console.log('All photo cards added successfully');
+                } else {
+                    console.error('Failed to load photos from API:', response.status);
+                    photoGrid.innerHTML = '<p style="text-align: center; padding: 2rem; color: red;">Failed to load photos. Please try again later.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading photos:', error);
+                photoGrid.innerHTML = '<p style="text-align: center; padding: 2rem; color: red;">Error loading photos. Please check your connection.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

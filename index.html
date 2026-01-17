@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasterBlog - Modern Vlog Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Advert Ticker -->
+    <div class="advert-ticker" id="advert-ticker">
+        <div class="ticker-wrapper" id="ticker-wrapper">
+            <!-- Messages will be loaded from JSON -->
+        </div>
+    </div>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1><span class="easter-bell">🔔</span>EasterBlog</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to EasterBlog</h2>
+            <p>Your source for engaging vlogs and stories</p>
+            <a href="#videos" class="cta-button">Explore Videos</a>
+        </div>
+    </section>
+
+    <!-- Featured Video Section -->
+    <section class="featured-video">
+        <img id="featured-image" src="https://via.placeholder.com/1920x500/667eea/FFFFFF?text=No+Featured+Video" alt="Featured Video">
+        <div class="featured-video-overlay">
+            <h2 id="featured-title">No Featured Video</h2>
+            <p id="featured-description">Upload and set a featured video from the admin panel.</p>
+            <button id="featured-play-btn" class="featured-play-btn" style="display: none;">Watch Now <i class="fas fa-play"></i></button>
+        </div>
+    </section>
+
+    <!-- Vlog Features Section -->
+    <section class="vlog-features">
+        <div class="container">
+            <h2>Why Watch Our Vlogs?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎥</span>
+                    <h3>Quality Adventure</h3>
+                    <p>Videos with engaging storytelling and beautiful views.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">❤️</span>
+                    <h3>Family Friendly</h3>
+                    <p>You can be a part of us. Here is where you aren't just a friend, but family by association.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📅</span>
+                    <h3>Easter Updates</h3>
+                    <p>Here is where you get every update you need on what we do during easters.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3>Community Focused</h3>
+                    <p>Join our growing community of native adventurers (if that's a thing anyway haha) but really, join the movement already.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="photos" class="photos-section">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <div class="photo-grid" id="photo-grid">
+                <!-- Photos will be loaded dynamically -->
+                <div class="photo-card">
+                    <img src="https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Loading+Photos..." alt="Loading">
+                    <div class="photo-overlay">
+                        <h3>Loading Photos...</h3>
+                        <p>Please wait while we load your photos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <h2>Latest Vlogs</h2>
+
+            <!-- Video Categories -->
+            <div class="video-categories">
+                <button class="category-btn active" data-category="all">All Videos</button>
+                <button class="category-btn" data-category="easter">Easter Specials</button>
+                <button class="category-btn" data-category="cooking">Cooking</button>
+                <button class="category-btn" data-category="traditions">Traditions</button>
+                <button class="category-btn" data-category="adventures">Adventures</button>
+            </div>
+
+            <!-- Category Tags -->
+            <div class="category-tags">
+                <a href="#" class="category-tag active">#EasterVlogs</a>
+                <a href="#" class="category-tag">#FamilyFun</a>
+                <a href="#" class="category-tag">#CookingTutorials</a>
+                <a href="#" class="category-tag">#Traditions</a>
+                <a href="#" class="category-tag">#SpringAdventures</a>
+            </div>
+
+            <div class="video-grid" id="video-grid">
+                <!-- Videos will be loaded dynamically -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/4A90E2/FFFFFF?text=Loading+Videos..." alt="Loading">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">--:--</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Loading Videos...</h3>
+                        <p>Please wait while we load your videos.</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> -- views</span>
+                            <span><i class="fas fa-calendar"></i> -- ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-grid" id="blog-grid">
+                <!-- Blog posts will be loaded dynamically -->
+                <article class="blog-post">
+                    <img src="https://via.placeholder.com/400x250/F5A623/FFFFFF?text=Loading+Blog..." alt="Loading">
+                    <div class="blog-content">
+                        <h3>Loading Blog Posts...</h3>
+                        <p>Please wait while we load the latest blog posts.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <img src="OIF.webp" alt="Easter Family" class="profile-img">
+                <div class="about-text">
+                    <p>We are just some high-spirited cousins from a part of Nigeria where Yoruba is beauty, Pidgin is merry, English mmmm packaging (maybe). Back to the storyline, so yeah, we decided one day that we should spend time with our mutual grandma during a particular easter, many years down the line now. It was adventurous, beautiful - that memory... there was no coming back from that, so it became a custom. We got high on our discovery, we couldn't keep it to ourselves so we gave some friends in crime a sneak peek of what easters look like for us and guess what - these partners in crime won't stay put when easter is around the corner, they always ready to board that easter train with us down to grandma's. Years roll over years and one thing became evident, this isn't just a discovery anymore, it's a movement. Our numbers grew drastically, interests from people hit us like a plague we can't afford, we storm grandma's hometown with exceptionality and valor. Ok make I calm down, English don dey drop but the whole gist here is - easter is always fun, just wine and dine with the right people, and you don't need to keep looking, we are here, the right people you need to have the right kinda easter. Begin this year, but I promise you, there won't be an end to that beginning.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EasterBlog. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Components -->
+    <div id="chat-icon" class="chat-icon">💬</div>
+
+    <div id="name-modal" class="modal">
+        <div class="modal-content">
+            <h3>Join the EasterBlog Community Chat</h3>
+            <input type="text" id="user-name" placeholder="Enter your name" maxlength="20">
+            <button id="join-chat">Join Chat</button>
+        </div>
+    </div>
+
+    <div id="chat-interface" class="chat-interface">
+        <div class="chat-header">
+            <h4>EasterBlog Community Chat</h4>
+            <button id="close-chat">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button id="emoji-btn">😊</button>
+            <input type="file" id="image-input" accept="image/*" style="display: none;">
+            <button id="image-btn">📎</button>
+            <button id="send-btn">Send</button>
+            <div class="emoji-picker" id="emoji-picker">
+                <div class="emoji-grid" id="emoji-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

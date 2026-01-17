@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasterBlog - Video Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>EasterBlog</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="gallery-btn">Gallery</a>
+                        <div class="dropdown-content">
+                            <a href="photos.html">Photos</a>
+                            <a href="videos.html">Videos</a>
+                        </div>
+                    </li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Featured Video Section -->
+    <section class="featured-video">
+        <img id="videos-featured-image" src="https://via.placeholder.com/1920x500/667eea/FFFFFF?text=Featured+Video" alt="Featured Video">
+        <div class="featured-video-overlay">
+            <h2 id="videos-featured-title">Easter Adventures 2024</h2>
+            <p id="videos-featured-description">Join me on an exciting journey through Easter celebrations, family traditions, and spring adventures!</p>
+            <button id="videos-featured-play-btn" class="featured-play-btn" style="display: none;">Watch Now <i class="fas fa-play"></i></button>
+        </div>
+    </section>
+
+    <!-- Vlog Features Section -->
+    <section class="vlog-features">
+        <div class="container">
+            <h2>Why Watch Our Vlogs?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>High Quality Content</h3>
+                    <p>Professionally produced videos with engaging storytelling and beautiful cinematography.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Family Friendly</h3>
+                    <p>Content suitable for all ages, focusing on positive and uplifting themes.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Regular Updates</h3>
+                    <p>New videos every week with fresh content and exciting adventures.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Focused</h3>
+                    <p>Join our growing community of viewers who share our passion for storytelling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <h2>Latest Vlogs</h2>
+
+            <!-- Video Categories -->
+            <div class="video-categories">
+                <button class="category-btn active" data-category="all">All Videos</button>
+                <button class="category-btn" data-category="easter">Easter Specials</button>
+                <button class="category-btn" data-category="cooking">Cooking</button>
+                <button class="category-btn" data-category="traditions">Traditions</button>
+                <button class="category-btn" data-category="adventures">Adventures</button>
+            </div>
+
+            <!-- Category Tags -->
+            <div class="category-tags">
+                <a href="#" class="category-tag active">#EasterVlogs</a>
+                <a href="#" class="category-tag">#FamilyFun</a>
+                <a href="#" class="category-tag">#CookingTutorials</a>
+                <a href="#" class="category-tag">#Traditions</a>
+                <a href="#" class="category-tag">#SpringAdventures</a>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card" data-category="adventures">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/4A90E2/FFFFFF?text=Video+1" alt="Video 1">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">12:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Easter Adventures</h3>
+                        <p>Join me on my Easter weekend explorations...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 1.2K views</span>
+                            <span><i class="fas fa-calendar"></i> 3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="cooking">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/E94B3C/FFFFFF?text=Video+2" alt="Video 2">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">18:32</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Cooking Easter Brunch</h3>
+                        <p>Learn to make delicious Easter recipes...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 856 views</span>
+                            <span><i class="fas fa-calendar"></i> 1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="traditions">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/50E3C2/FFFFFF?text=Video+3" alt="Video 3">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">15:22</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Easter Traditions</h3>
+                        <p>Exploring family traditions and celebrations...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 2.1K views</span>
+                            <span><i class="fas fa-calendar"></i> 2 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="cooking">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/F5A623/FFFFFF?text=Video+4" alt="Video 4">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">22:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Easter Cooking Tutorial</h3>
+                        <p>Step-by-step guide to Easter recipes...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 1.8K views</span>
+                            <span><i class="fas fa-calendar"></i> 3 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="easter">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/9013FE/FFFFFF?text=Video+5" alt="Video 5">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">10:18</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Easter Egg Hunt</h3>
+                        <p>Fun family Easter egg hunt adventure...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 3.2K views</span>
+                            <span><i class="fas fa-calendar"></i> 1 month ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="easter">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/7ED321/FFFFFF?text=Video+6" alt="Video 6">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">8:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Easter Reflections 2024</h3>
+                        <p>Personal thoughts on this Easter season...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 2.7K views</span>
+                            <span><i class="fas fa-calendar"></i> 6 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="adventures">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/BD10E0/FFFFFF?text=Video+7" alt="Video 7">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">14:30</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Spring Garden Tour</h3>
+                        <p>Exploring the blooming spring garden...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 1.5K views</span>
+                            <span><i class="fas fa-calendar"></i> 2 months ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card" data-category="easter">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x225/FF6B6B/FFFFFF?text=Video+8" alt="Video 8">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">25:12</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Easter Music Special</h3>
+                        <p>Hymns and songs for Easter celebration...</p>
+                        <div class="video-stats">
+                            <span><i class="fas fa-eye"></i> 2.9K views</span>
+                            <span><i class="fas fa-calendar"></i> 3 months ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EasterBlog. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load featured video for videos page
+        async function loadVideosPageFeaturedVideo() {
+            try {
+                const response = await fetch('/api/videos/featured');
+                if (response.ok) {
+                    const featuredVideo = await response.json();
+                    if (featuredVideo) {
+                        // Update featured video section
+                        document.getElementById('videos-featured-title').textContent = featuredVideo.title;
+                        document.getElementById('videos-featured-description').textContent = featuredVideo.description || 'Watch this featured video!';
+                        document.getElementById('videos-featured-image').src = `${featuredVideo.thumbnail || 'https://via.placeholder.com/1920x500/667eea/FFFFFF?text=' + encodeURIComponent(featuredVideo.title)}`;
+                        document.getElementById('videos-featured-image').alt = featuredVideo.title;
+
+                        // Set video source for play button
+                        const playBtn = document.getElementById('videos-featured-play-btn');
+                        playBtn.dataset.videoSrc = `${featuredVideo.filepath}`;
+                        playBtn.style.display = 'inline-block';
+                        playBtn.onclick = function() {
+                            const modalVideo = document.querySelector('#videoModal video');
+                            const modalTitle = document.querySelector('#videoModal h3');
+
+                            if (modalVideo && modalTitle) {
+                                modalTitle.textContent = featuredVideo.title;
+                                modalVideo.src = featuredVideo.filepath;
+                                modalVideo.load();
+
+                                const modal = document.getElementById('videoModal');
+                                if (modal) {
+                                    modal.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+                                }
+                            }
+                        };
+                    } else {
+                        // No featured video
+                        document.getElementById('videos-featured-title').textContent = 'No Featured Video';
+                        document.getElementById('videos-featured-description').textContent = 'Upload and set a featured video from the admin panel.';
+                        document.getElementById('videos-featured-image').src = 'https://via.placeholder.com/1920x500/667eea/FFFFFF?text=No+Featured+Video';
+                        document.getElementById('videos-featured-play-btn').style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading featured video:', error);
+            }
+        }
+
+        // Load videos from API
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load featured video for this page
+            await loadVideosPageFeaturedVideo();
+            const apiBase = '/api';
+            const videoGrid = document.querySelector('.video-grid');
+
+            try {
+                const response = await fetch(`${apiBase}/videos`);
+                if (response.ok) {
+                    const videos = await response.json();
+
+                    // Clear existing placeholder videos
+                    videoGrid.innerHTML = '';
+
+                    if (videos.length === 0) {
+                        // Show message if no videos
+                        videoGrid.innerHTML = '<p style="text-align: center; padding: 2rem; font-style: italic;">No videos uploaded yet. Visit the admin panel to add videos.</p>';
+                        return;
+                    }
+
+                    videos.forEach((video) => {
+                        const videoCard = document.createElement('div');
+                        videoCard.className = 'video-card';
+                        videoCard.setAttribute('data-category', video.category || 'general');
+
+                        const uploadDate = new Date(video.created_at);
+                        const now = new Date();
+                        const diffTime = Math.abs(now - uploadDate);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                        let timeAgo;
+                        if (diffDays === 1) {
+                            timeAgo = '1 day ago';
+                        } else if (diffDays < 7) {
+                            timeAgo = `${diffDays} days ago`;
+                        } else if (diffDays < 30) {
+                            const weeks = Math.floor(diffDays / 7);
+                            timeAgo = `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+                        } else {
+                            timeAgo = uploadDate.toLocaleDateString();
+                        }
+
+                        videoCard.innerHTML = `
+                            <div class="video-thumbnail">
+                                <img src="${video.thumbnail || 'https://via.placeholder.com/400x225/4A90E2/FFFFFF?text=' + encodeURIComponent(video.title)}" alt="${video.title}">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-duration">--:--</div>
+                            </div>
+                            <div class="video-info">
+                                <h3>${video.title}</h3>
+                                <p>${video.description || 'Watch this amazing video!'}</p>
+                                <div class="video-stats">
+                                    <span><i class="fas fa-eye"></i> ${video.views || 0} views</span>
+                                    <span><i class="fas fa-calendar"></i> ${timeAgo}</span>
+                                </div>
+                            </div>
+                        `;
+
+                        // Add click handler for video playback
+                        const playButton = videoCard.querySelector('.play-button');
+                        playButton.addEventListener('click', function() {
+                            const modalVideo = document.querySelector('#videoModal video');
+                            const modalTitle = document.querySelector('#videoModal h3');
+
+                            if (modalVideo && modalTitle) {
+                                modalTitle.textContent = video.title;
+                                modalVideo.src = video.filepath;
+                                modalVideo.load();
+
+                                const modal = document.getElementById('videoModal');
+                                if (modal) {
+                                    modal.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+                                }
+                            }
+                        });
+
+                        videoGrid.appendChild(videoCard);
+                    });
+
+                    // Re-initialize category filtering after loading videos
+                    const categoryBtns = document.querySelectorAll('.category-btn');
+                    const categoryTags = document.querySelectorAll('.category-tag');
+                    const videoCards = document.querySelectorAll('.video-card');
+
+                    // Category button filtering
+                    categoryBtns.forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            // Remove active class from all buttons
+                            categoryBtns.forEach(b => b.classList.remove('active'));
+                            // Add active class to clicked button
+                            this.classList.add('active');
+
+                            const category = this.getAttribute('data-category');
+
+                            // Filter video cards
+                            videoCards.forEach(card => {
+                                if (category === 'all' || card.getAttribute('data-category') === category) {
+                                    card.style.display = 'block';
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+
+                    // Category tag filtering
+                    categoryTags.forEach(tag => {
+                        tag.addEventListener('click', function(e) {
+                            e.preventDefault();
+
+                            // Remove active class from all tags
+                            categoryTags.forEach(t => t.classList.remove('active'));
+                            // Add active class to clicked tag
+                            this.classList.add('active');
+
+                            const tagText = this.textContent.toLowerCase();
+
+                            // Filter based on tag
+                            videoCards.forEach(card => {
+                                const title = card.querySelector('h3').textContent.toLowerCase();
+                                const desc = card.querySelector('p').textContent.toLowerCase();
+
+                                if (tagText.includes('easter') && (title.includes('easter') || desc.includes('easter'))) {
+                                    card.style.display = 'block';
+                                } else if (tagText.includes('family') && (title.includes('family') || desc.includes('family'))) {
+                                    card.style.display = 'block';
+                                } else if (tagText.includes('cooking') && (title.includes('cooking') || desc.includes('cooking') || title.includes('brunch'))) {
+                                    card.style.display = 'block';
+                                } else if (tagText.includes('traditions') && (title.includes('traditions') || desc.includes('traditions'))) {
+                                    card.style.display = 'block';
+                                } else if (tagText.includes('adventures') && (title.includes('adventures') || desc.includes('adventures'))) {
+                                    card.style.display = 'block';
+                                } else if (this.classList.contains('active') && tagText.includes('eastervlogs')) {
+                                    card.style.display = 'block';
+                                } else if (!this.classList.contains('active')) {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+                } else {
+                    console.error('Failed to load videos from API');
+                }
+            } catch (error) {
+                console.error('Error loading videos:', error);
+            }
+        });
+    </script>
+</body>
+</html>

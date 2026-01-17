@@ -1,0 +1,13 @@
+{
+  "messages": [
+    "Here we will talk about your business to others",
+    "You will be getting announcements on this board as well so pay attention",
+    "Stay tuned for exciting updates and special offers!",
+    "Follow us for the latest Easter celebrations and traditions"
+  ],
+  "settings": {
+    "animationDuration": 15,
+    "fadeDuration": 1,
+    "displayDuration": 10
+  }
+}
